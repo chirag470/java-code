@@ -35,4 +35,32 @@ class SubArraySum
 
 	   }
 	}
+	
+	public static void findSum2(int [] a,int  sum) {
+	   int s = a[0];
+	   
+	   int n = a.length;
+	   int i=0,j=0;
+	   while(j<n) {
+		   if (s <sum) {
+		       j++;
+		       if(j==n)
+			  break;
+		       s = s + a[j];   
+		   } else if(s >=sum) {
+		       if(s==sum)
+			 System.out.println(i+", "+j);
+		       if(i==j) {
+				i++;
+				j++;
+				if(j==n)
+				  break;
+				s = s - a[i-1] + a[j]; 
+			} else {
+			    i++;
+			    s = s - a[i-1];
+			}
+		   } 
+	   }
+	}
 }
